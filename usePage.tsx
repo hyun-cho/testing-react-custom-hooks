@@ -4,7 +4,8 @@ export interface Page {
   name: string;
   creator?: string;
 }
-const CachePageMap: Partial<{ [id: string]: Page }> = {};
+type PageMap = { [id in string]?: Page };
+const CachePageMap: PageMap = {};
 export const DEFAULT_PAGE: Page = { name: '', creator: '' };
 
 const usePage = (pageId: string, defaultPage = DEFAULT_PAGE) => {
